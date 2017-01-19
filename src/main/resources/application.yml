@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  profiles: dev
+
+druid:
+  datasource:
+    url: jdbc:mysql://localhost:3306/airtransport?characterEncoding=utf8
+    username: cbuser
+    password: cbpass
+
+server:
+  port: 8080
+  context-path: /airtransport
+
+---
+
+

@@ -12,6 +12,10 @@ druid:
     url: jdbc:mysql://localhost:3306/airtransport?characterEncoding=utf8
     username: cbuser
     password: cbpass
+    maxActive: 20
+    maxWait: 5000
+    minIdle: 1
+
 
 server:
   port: 8080

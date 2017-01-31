@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-vertical-menu.css">
+    <title>console</title>
+    <style type="text/css">
+        label{
+            margin-left: 30px;
+        }
+        span{
+            font-size: 25px;
+        }
+        iframe{
+            height: 100%;
+            width:100%;
+            position: fixed;
+            right: 0;
+        }
+        .navbar{
+            background-color: #269abc;
+        }
+    </style>
+</head>
+<body>
+<script>
+
+    $(function(){
+        $("#main").attr("src",sessionStorage.getItem("src"));
+    })
+    function top1() {
+        $("#main").attr("src","welcome.html");
+        sessionStorage.setItem("src","welcome.html")
+    }
+    function top2() {
+        $("#main").attr("src","bookcabin.html");
+        sessionStorage.setItem("src","bookcabin.html")
+    }
+    function top3() {
+        $("#main").attr("src","goodstrack.html");
+        sessionStorage.setItem("src","goodstrack.html")
+    }
+    function top4() {
+        $("#main").attr("src","ordermanager.html");
+        sessionStorage.setItem("src","ordermanager.html")
+    }
+    function top5() {
+        $("#main").attr("src","tackmanager.html");
+        sessionStorage.setItem("src","tackmanager.html")
+    }
+    function top6() {
+        $("#main").attr("src","clientmessage.html");
+        sessionStorage.setItem("src","clientmessage.html")
+    }
+</script>
+<nav class="navbar navbar-vertical-left">
+    <ul class="nav navbar-nav">
+        <li>
+            <a onclick="top1()">
+                <span class="glyphicon glyphicon-home"></span>
+                <label>网站首页</label>
+            </a>
+        </li>
+
+        <li>
+            <a onclick="top2()">
+                <span class="glyphicon glyphicon-plane"></span>
+                <label>订舱管理</label>
+            </a>
+        </li>
+        <li>
+            <a onclick="top3()">
+                <span class="glyphicon glyphicon-pushpin"></span>
+                <label>货物跟踪</label>
+            </a>
+        </li>
+        <li>
+            <a onclick="top4()">
+                <span class="glyphicon glyphicon-list-alt"></span>
+                <label>订单管理</label>
+            </a>
+        </li>
+        <li>
+            <a onclick="top5()">
+                <span class="glyphicon glyphicon-share"></span>
+                <label>取货管理</label>
+            </a>
+        </li>
+        <li>
+            <a onclick="top6()">
+                <span class="glyphicon glyphicon-user"></span>
+                <label>客户信息</label>
+            </a>
+        </li>
+    </ul>
+</nav>
+<iframe id="main">
+
+</iframe>
+</body>
+
+</html>

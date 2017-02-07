@@ -72,11 +72,6 @@
         <artifactId>hibernate-entitymanager</artifactId>
         <version>5.2.6.Final</version>
     </dependency>
-        <dependency>
-        <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
-            <version>4.1.0</version>
-        </dependency>
     <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
@@ -91,6 +86,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>

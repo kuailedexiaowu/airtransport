@@ -17,6 +17,7 @@ druid:
     minIdle: 1
 
 
+
 server:
   port: 8080
   context-path: /airtransport

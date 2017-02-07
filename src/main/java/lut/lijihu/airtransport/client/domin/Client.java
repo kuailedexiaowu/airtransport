@@ -1,11 +1,10 @@
-package lut.lijihu.airtransport.domin;
+package lut.lijihu.airtransport.client.domin;
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.UUID;
 
 /**
@@ -16,8 +15,10 @@ import java.util.UUID;
 @Table(name = "client")
 public class Client {
     @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "assigned")
     @Column(name = "id")
-    private String id= UUID.randomUUID().toString();
+    private String id=UUID.randomUUID().toString();
     @Column(name = "name")
     private String name;
     @Column(name="tel")
@@ -26,5 +27,7 @@ public class Client {
     private String code;
     @Column(name = "address")
     private String address;
+
+
 }
 

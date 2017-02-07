@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
@@ -22,7 +24,7 @@ public class HibernateConfiguration {
     public LocalSessionFactoryBean localSessionFactoryBean(@Qualifier("dataSource") DataSource dataSource){
         LocalSessionFactoryBean localSessionFactoryBean=new LocalSessionFactoryBean();
         localSessionFactoryBean.setDataSource(dataSource);
-        localSessionFactoryBean.setPackagesToScan("lut.lijihu.airtransport.domin");
+        localSessionFactoryBean.setPackagesToScan("lut.lijihu.airtransport.client.domin");
         localSessionFactoryBean.setHibernateProperties(this.hibernateproperties());
         /*final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure()
@@ -66,6 +68,10 @@ public class HibernateConfiguration {
                 setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
                 setProperty("hibernate.connecton.provider_class","com.alibaba.druid.support.hibernate.DruidConnectionProvider");
                 setProperty("packagesToScan","lut.lijihu.airtransport");
+                //setProperty("hibernate.hbm2ddl.auto","update");
+                //setProperty("use_sql_comments","true");
+                //setProperty("hibernate.connection.autocommit","true");
+                //setProperty("hibernate.jdbc.batch_size","0");
             }
         };
     }

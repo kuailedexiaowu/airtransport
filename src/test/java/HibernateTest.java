@@ -1,9 +1,8 @@
 
-import lut.lijihu.airtransport.AirTransportApplication;
 import lut.lijihu.airtransport.configuration.DataSourceConfiguration;
 import lut.lijihu.airtransport.configuration.DruidProperties;
 import lut.lijihu.airtransport.configuration.HibernateConfiguration;
-import lut.lijihu.airtransport.domin.Client;
+import lut.lijihu.airtransport.client.domin.Client;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.Test;

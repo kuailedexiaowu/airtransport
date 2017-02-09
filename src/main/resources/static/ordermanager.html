@@ -56,6 +56,9 @@
                 <button id="update" class="btn btn-primary" type="button" onclick="update()">
                     修改
                 </button>
+                <button id="detail" class="btn btn-info" type="button" onclick="detail()">
+                    详情
+                </button>
                 <button id="delete" class="btn btn-danger" type="button" onclick="deletein()">
                     删除
                 </button>
@@ -87,7 +90,7 @@
 </div>
 
 <div class="modal fade" id="updateModel" tabindex="-1" role="dialog" aria-labelledby="updateLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close glyphicon glyphicon-remove btn-default" data-dismiss="modal" aria-hidden="true"></button>
@@ -95,48 +98,154 @@
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form" >
-                    <div class="form-group">
-                        <label  class="col-sm-2 control-label col-sm-offset-1">
-                            编号
-                        </label>
-                        <div class="col-sm-8">
-                            <input class="form-control" id="id"  type="text" disabled/>
+                    <div class="col-lg-6 ">
+                        <div class="form-group">
+                            <label  class="col-md-3 control-label ">
+                                发货人信息
+                            </label>
+                            <hr class="col-md-7 control-label">
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                姓名
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="sname" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                电话
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="stel" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                邮编
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="scode" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                地址
+                            </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="saddress"  type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label  class="col-sm-3 control-label ">
+                                收货人信息
+                            </label>
+                            <hr class="col-sm-7 control-label">
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                姓名
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="rname" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                电话
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="rtel" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                邮编
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="rcode" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                地址
+                            </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="raddress"  type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label  class="col-sm-3 control-label ">
+                                物品信息
+                            </label>
+                            <hr class="col-sm-7 col-lg-offset-1 control-label ">
+                        </div>
+
+                        <div class="form-group ">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                类型
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="good" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                重量
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="weight" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                体积
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="size" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label  class="col-sm-3 control-label ">
+                                其他信息
+                            </label>
+                            <hr class="col-sm-7 col-lg-offset-1 control-label ">
+                        </div>
+
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                舱号
+                            </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="cabin_id" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                付款方式
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="pay" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                货物状态
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="status" type="text"/>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label  class="col-sm-2 control-label col-sm-offset-1">
-                            姓名
-                        </label>
-                        <div class="col-sm-4">
-                            <input class="form-control" id="name" type="text"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label  class="col-sm-2 control-label col-sm-offset-1">
-                            电话
-                        </label>
-                        <div class="col-sm-4">
-                            <input class="form-control" id="tel" type="text"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label  class="col-sm-2 control-label col-sm-offset-1">
-                            邮编
-                        </label>
-                        <div class="col-sm-4">
-                            <input class="form-control" id="code" type="text"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label  class="col-sm-2 control-label col-sm-offset-1">
-                            地址
-                        </label>
-                        <div class="col-sm-8">
-                            <input class="form-control" id="address"  type="text"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-3 col-sm-5">
+                        <div class="col-sm-offset-5 col-sm-5">
                             <button type="button" class="btn btn-primary"data-dismiss="modal" onclick="updatesub()">提交</button>
                             <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
                         </div>
@@ -168,7 +277,7 @@
                             姓名
                         </label>
                         <div class="col-sm-4">
-                            <input class="form-control" id="sname" type="text"/>
+                            <input class="form-control" id="sname2" type="text"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -176,7 +285,7 @@
                             电话
                         </label>
                         <div class="col-sm-4">
-                            <input class="form-control" id="stel" type="text"/>
+                            <input class="form-control" id="stel2" type="text"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -184,7 +293,7 @@
                             邮编
                         </label>
                         <div class="col-sm-4">
-                            <input class="form-control" id="scode" type="text"/>
+                            <input class="form-control" id="scode2" type="text"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -192,7 +301,7 @@
                             地址
                         </label>
                         <div class="col-sm-8">
-                            <input class="form-control" id="saddress"  type="text"/>
+                            <input class="form-control" id="saddress2"  type="text"/>
                         </div>
                     </div>
                 </div>
@@ -208,7 +317,7 @@
                             姓名
                         </label>
                         <div class="col-sm-4">
-                            <input class="form-control" id="rname" type="text"/>
+                            <input class="form-control" id="rname2" type="text"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -216,7 +325,7 @@
                             电话
                         </label>
                         <div class="col-sm-4">
-                            <input class="form-control" id="rtel" type="text"/>
+                            <input class="form-control" id="rtel2" type="text"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -224,7 +333,7 @@
                             邮编
                         </label>
                         <div class="col-sm-4">
-                            <input class="form-control" id="rcode" type="text"/>
+                            <input class="form-control" id="rcode2" type="text"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -232,7 +341,7 @@
                             地址
                         </label>
                         <div class="col-sm-8">
-                            <input class="form-control" id="raddress"  type="text"/>
+                            <input class="form-control" id="raddress2"  type="text"/>
                         </div>
                     </div>
                  </div>
@@ -249,7 +358,7 @@
                               类型
                           </label>
                           <div class="col-sm-4">
-                              <input class="form-control" id="good" type="text"/>
+                              <input class="form-control" id="good2" type="text"/>
                           </div>
                       </div>
                       <div class="form-group">
@@ -257,7 +366,7 @@
                               重量
                           </label>
                           <div class="col-sm-4">
-                              <input class="form-control" id="weight" type="text"/>
+                              <input class="form-control" id="weight2" type="text"/>
                           </div>
                       </div>
                       <div class="form-group">
@@ -265,7 +374,7 @@
                               体积
                           </label>
                           <div class="col-sm-4">
-                              <input class="form-control" id="size" type="text"/>
+                              <input class="form-control" id="size2" type="text"/>
                           </div>
                       </div>
                  </div>
@@ -281,7 +390,7 @@
                              舱号
                          </label>
                          <div class="col-sm-8">
-                             <input class="form-control" id="cabin_id" type="text"/>
+                             <input class="form-control" id="cabin_id2" type="text"/>
                          </div>
                      </div>
                      <div class="form-group">
@@ -289,7 +398,7 @@
                              付款方式
                          </label>
                          <div class="col-sm-4">
-                             <input class="form-control" id="pay" type="text"/>
+                             <input class="form-control" id="pay2" type="text"/>
                          </div>
                      </div>
                      <div class="form-group">
@@ -297,15 +406,7 @@
                              货物状态
                          </label>
                          <div class="col-sm-4">
-                             <input class="form-control" id="status" type="text"/>
-                         </div>
-                     </div>
-                     <div class="form-group">
-                         <label  class="col-sm-2 control-label col-sm-offset-1">
-                             创建时间
-                         </label>
-                         <div class="col-sm-8">
-                             <input class="form-control" id="create_time" type="date"/>
+                             <input class="form-control" id="status2" type="text"/>
                          </div>
                      </div>
                  </div>
@@ -314,6 +415,168 @@
                             <button type="button" class="btn btn-primary"data-dismiss="modal" onclick="addsub()">提交</button>
                             <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
                         </div>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+
+<div class="modal fade" id="detailModel" tabindex="-1" role="dialog" aria-labelledby="detailLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close glyphicon glyphicon-remove btn-default" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title " id="detailLabel" align="center"><strong>订单信息</strong></h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" >
+                    <div class="col-lg-6 ">
+                        <div class="form-group">
+                            <label  class="col-md-3 control-label ">
+                                发货人信息
+                            </label>
+                            <hr class="col-md-7 control-label">
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                姓名
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="sname3" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                电话
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="stel3" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                邮编
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="scode3" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                地址
+                            </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="saddress3"  type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label  class="col-sm-3 control-label ">
+                                收货人信息
+                            </label>
+                            <hr class="col-sm-7 control-label">
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                姓名
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="rname3" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                电话
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="rtel3" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                邮编
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="rcode3" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                地址
+                            </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="raddress3"  type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label  class="col-sm-3 control-label ">
+                                物品信息
+                            </label>
+                            <hr class="col-sm-7 col-lg-offset-1 control-label ">
+                        </div>
+
+                        <div class="form-group ">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                类型
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="good3" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                重量
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="weight3" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                体积
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="size3" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label  class="col-sm-3 control-label ">
+                                其他信息
+                            </label>
+                            <hr class="col-sm-7 col-lg-offset-1 control-label ">
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                舱号
+                            </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="cabin_id3" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                付款方式
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="pay3" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label col-sm-offset-1">
+                                货物状态
+                            </label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="status3" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
                     </div>
                 </form>
             </div><!-- /.modal-content -->

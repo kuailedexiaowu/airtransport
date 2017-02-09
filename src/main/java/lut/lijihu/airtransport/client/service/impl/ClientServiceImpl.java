@@ -82,4 +82,14 @@ public class ClientServiceImpl implements ClientService{
         pageInfo.setSize(clients1.size());
         return pageInfo;
     }
+
+    @Override
+    public Client findById(String id) {
+        Session session=sessionFactory.openSession();
+        Transaction transaction=session.beginTransaction();
+        Client client=session.find(Client.class,id);
+        transaction.commit();
+        session.close();
+        return client;
+    }
 }

@@ -7,4 +7,6 @@ import lombok.Data;
  */
 @Data
 public class OrderServiceSelectAllIn {
+    Integer pageSize;
+    Integer pageNo;
 }

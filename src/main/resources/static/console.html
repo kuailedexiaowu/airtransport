@@ -48,10 +48,10 @@
         $("#main").attr("src","ordermanager.html");
         sessionStorage.setItem("src","ordermanager.html")
     }
-    function top5() {
+    /*function top5() {
         $("#main").attr("src","tackmanager.html");
         sessionStorage.setItem("src","tackmanager.html")
-    }
+    }*/
     function top6() {
         $("#main").attr("src","clientmessage.html");
         sessionStorage.setItem("src","clientmessage.html")
@@ -65,7 +65,12 @@
                 <label>网站首页</label>
             </a>
         </li>
-
+        <li>
+            <a onclick="top4()">
+                <span class="glyphicon glyphicon-list-alt"></span>
+                <label>订单管理</label>
+            </a>
+        </li>
         <li>
             <a onclick="top2()">
                 <span class="glyphicon glyphicon-plane"></span>
@@ -78,18 +83,12 @@
                 <label>货物跟踪</label>
             </a>
         </li>
-        <li>
-            <a onclick="top4()">
-                <span class="glyphicon glyphicon-list-alt"></span>
-                <label>订单管理</label>
-            </a>
-        </li>
-        <li>
+        <!--<li>
             <a onclick="top5()">
                 <span class="glyphicon glyphicon-share"></span>
                 <label>取货管理</label>
             </a>
-        </li>
+        </li>-->
         <li>
             <a onclick="top6()">
                 <span class="glyphicon glyphicon-user"></span>

@@ -14,5 +14,6 @@ public interface ClientService {
      Message update(Client client);
      Message insert(Client client);
      PageInfo<Client> selectAll(ClientServiceSelectAllIn clientServiceSelectAllIn);
+     Client findById(String id);
 
 }

@@ -6,13 +6,16 @@ import lut.lijihu.airtransport.order.domin.Order;
 import lut.lijihu.airtransport.order.invo.OrderAddIn;
 import lut.lijihu.airtransport.order.invo.OrderServiceSelectAllIn;
 import lut.lijihu.airtransport.order.invo.OrderUpdateIn;
+import lut.lijihu.airtransport.order.revo.OrderFindByIdVo;
+import lut.lijihu.airtransport.order.revo.OrderSelectAllVo;
 
 /**
  * Created by kj on 2017/2/8.
  */
 public interface OrderService {
-    Message insertOrder(OrderAddIn orderAddIn);
+    Message insertOrder(Order order);
     Message deleetOrder(String[] ids);
     Message updateOrder(OrderUpdateIn orderUpdateIn);
-    PageInfo<Order> selectAll(OrderServiceSelectAllIn orderServiceSelectAllIn);
+    OrderFindByIdVo findById(String id);
+    PageInfo<OrderSelectAllVo> selectAll(OrderServiceSelectAllIn orderServiceSelectAllIn);
 }

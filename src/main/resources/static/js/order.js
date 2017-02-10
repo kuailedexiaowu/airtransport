@@ -114,7 +114,7 @@ function order2(no,size) {
                 bootstrapMajorVersion:3,
                 onPageClicked:function (event, originalEvent, type, page) {
                     $("tbody").children().remove();
-                    client2(page,2)
+                    order2(page,2)
                 }
             }
             $('#paginator').bootstrapPaginator(op);
@@ -300,7 +300,7 @@ function detail() {
         return ;
     }
     else if($("input:checkbox:checked:not(#leader)").length>1) {
-            alert("目前版本只支持单一更新");
+            alert("目前版本只支持单一选择");
         return ;
     }
     else{

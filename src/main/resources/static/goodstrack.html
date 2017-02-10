@@ -12,6 +12,10 @@
         .pagination{
             text-align:right;
         }
+        select{
+            height:40px;
+            width: 280px;
+        }
         table{
             margin-top: 15px;
         }
@@ -47,9 +51,11 @@
     <div class="row ">
         <div class="col-md-1">
         </div>
-        <div class="col-md-10">
+        <div class="col-md-6">
             <div class="btn-group btn-group-lg">
-
+                <button id="add" class="btn btn-success" type="button" onclick="addin()">
+                    新增
+                </button>
                 <button id="update" class="btn btn-success" type="button" onclick="update()">
                     更新
                 </button>
@@ -61,7 +67,7 @@
                 </button>
             </div>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-4">
         </div>
     </div>
 
@@ -144,6 +150,43 @@
         </div><!-- /.modal -->
     </div>
 </div>
-
+<div class="modal fade" id="addModel" tabindex="-1" role="dialog" aria-labelledby="addLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header bg-success">
+                <button type="button" class="close glyphicon glyphicon-remove btn-default" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title " id="addLabel" align="center"><strong>站点详细信息</strong></h4>
+            </div>
+            <div class="modal-body bg-warning">
+                <form class="form-horizontal" role="form" >
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label col-sm-offset-1">
+                            订单号
+                        </label>
+                        <div class="col-sm-8">
+                            <select id="orderid" class="dropdown">
+                            </select>
+                        </div>
+                    </div>
+                    <!--<div class="form-group">
+                        <label  class="col-sm-2 control-label col-sm-offset-1">
+                            机舱号
+                        </label>
+                        <div class="col-sm-8">
+                            <select id="cabinid" class="dropdown">
+                            </select>
+                        </div>
+                    </div>-->
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-5">
+                            <button type="button" class="btn btn-primary"data-dismiss="modal" onclick="addsub()">提交</button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
 </body>
 </html>

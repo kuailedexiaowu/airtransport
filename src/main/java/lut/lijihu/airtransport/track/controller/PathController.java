@@ -33,6 +33,10 @@ public class PathController {
         pathAddServiceIn.setSort(pathAddIn.getSort());
         return pathService.addPath(pathAddServiceIn);
     }
+    @RequestMapping("/addpaths")
+    public Message addpaths(String id){
+        return pathService.addPaths(id);
+    }
 
     @RequestMapping("/getpaths")
     public List<Path> getPaths(String id){

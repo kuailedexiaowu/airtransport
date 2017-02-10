@@ -24,5 +24,5 @@ public class Path {
     @Column(name = "sort")
     private int sort;
     @Column(name = "arrive_time")
-    private Timestamp arrive_time;
+    private Timestamp arrive_time=new Timestamp(System.currentTimeMillis());
 }

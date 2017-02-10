@@ -218,6 +218,20 @@ function updatesub() {
 }
 
 function addin() {
+    $.post({
+        url:"/airtransport/cabin/listid",
+        async:true,
+        dataType:'json',
+        success:function (data) {
+            $("#cabin_id").children().remove();
+            for(var i=0;i<data.length;i++){
+                $("#cabin_id2").append("<option>"+data[i].id+"</option>");
+            }
+        },
+        error:function () {
+            alert("fail")
+        }
+    });
     $("#add").attr("data-target","#addModel").attr("data-toggle","modal");
 }
 

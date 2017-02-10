@@ -14,6 +14,7 @@ import java.util.List;
  */
 public interface PathService {
     Message addPath(PathAddServiceIn pathAddServiceIn);
+    Message addPaths(String id);
     Message updatePath(Path path);
     Path selectById(String id);
     List<Path> getPaths(String id);

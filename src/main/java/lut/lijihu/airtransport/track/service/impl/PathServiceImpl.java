@@ -1,5 +1,6 @@
 package lut.lijihu.airtransport.track.service.impl;
 
+import lut.lijihu.airtransport.cabin.domin.Cabin;
 import lut.lijihu.airtransport.core.Message;
 import lut.lijihu.airtransport.core.PageInfo;
 import lut.lijihu.airtransport.order.domin.Order;
@@ -45,6 +46,25 @@ public class PathServiceImpl implements PathService {
     }
 
     @Override
+    public Message addPaths(String id) {
+        Session session=sessionFactory.openSession();
+        Transaction transaction=session.beginTransaction();
+        Order order=session.find(Order.class,id);
+        Cabin cabin=session.find(Cabin.class,order.getCabin_id());
+        Path path=new Path();
+        path.setSort(1);
+        path.setName(cabin.getStart());
+        OrderPath orderPath=new OrderPath();
+        orderPath.setOrderId(id);
+        orderPath.setPathId(path.getId());
+        session.save(path);
+        session.save(orderPath);
+        transaction.commit();
+        session.close();
+        return new Message("创建跟踪信息成功");
+    }
+
+    @Override
     public Message updatePath(Path path) {
         Session session=sessionFactory.openSession();
         Transaction transaction=session.beginTransaction();
@@ -83,7 +103,7 @@ public class PathServiceImpl implements PathService {
     @Override
     public PageInfo<ListPathsVo> listPaths(Integer pageNo,Integer pageSize) {
         Session session=sessionFactory.openSession();
-        String hql="from lut.lijihu.airtransport.order.domin.Order";
+        String hql="select distinct o from lut.lijihu.airtransport.order.domin.Order o,OrderPath op where o.id=op.orderId";
         Query query=session.createQuery(hql);
         List<Order> orders=query.list();
         query.setFirstResult(pageSize*(pageNo-1));

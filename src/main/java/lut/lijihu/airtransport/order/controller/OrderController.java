@@ -11,12 +11,15 @@ import lut.lijihu.airtransport.order.invo.OrderAddIn;
 import lut.lijihu.airtransport.order.invo.OrderServiceSelectAllIn;
 import lut.lijihu.airtransport.order.invo.OrderUpdateIn;
 import lut.lijihu.airtransport.order.revo.OrderFindByIdVo;
+import lut.lijihu.airtransport.order.revo.OrderListIdVo;
 import lut.lijihu.airtransport.order.revo.OrderSelectAllVo;
 import lut.lijihu.airtransport.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * Created by kj on 2017/2/8.
@@ -79,5 +82,10 @@ public class OrderController {
     @RequestMapping("/findbyid")
     public OrderFindByIdVo findById(String id){
        return orderService.findById(id);
+    }
+
+    @RequestMapping("/listid")
+    public List<OrderListIdVo> listId(){
+        return orderService.listId();
     }
 }

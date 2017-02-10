@@ -4,6 +4,7 @@ import lut.lijihu.airtransport.cabin.domin.Cabin;
 import lut.lijihu.airtransport.cabin.invo.CabinAddIn;
 import lut.lijihu.airtransport.cabin.invo.CabinServiceSelectAllIn;
 import lut.lijihu.airtransport.cabin.invo.CabinUpdateIn;
+import lut.lijihu.airtransport.cabin.revo.CabinListIdVo;
 import lut.lijihu.airtransport.cabin.service.CabinService;
 import lut.lijihu.airtransport.core.Message;
 import lut.lijihu.airtransport.core.PageInfo;
@@ -11,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * Created by kj on 2017/2/7.
@@ -47,5 +50,9 @@ public class CabinController {
         cabinServiceSelectAllIn.setPageNo(pageNo);
         cabinServiceSelectAllIn.setPageSize(pageSize);
         return cabinService.selectAll(cabinServiceSelectAllIn);
+    }
+    @RequestMapping("/listid")
+    public List<CabinListIdVo> listId(){
+        return cabinService.listId();
     }
 }

@@ -10,8 +10,10 @@ import lut.lijihu.airtransport.order.domin.Order;
 import lut.lijihu.airtransport.order.invo.OrderServiceSelectAllIn;
 import lut.lijihu.airtransport.order.invo.OrderUpdateIn;
 import lut.lijihu.airtransport.order.revo.OrderFindByIdVo;
+import lut.lijihu.airtransport.order.revo.OrderListIdVo;
 import lut.lijihu.airtransport.order.revo.OrderSelectAllVo;
 import lut.lijihu.airtransport.order.service.OrderService;
+import lut.lijihu.airtransport.track.service.PathService;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -34,6 +36,8 @@ public class OrderServiceImpl implements OrderService {
     ClientService clientService;
     @Autowired
     GoodService goodService;
+    @Autowired
+    PathService pathService;
     @Override
     public Message insertOrder(Order order) {
         Session session=sessionFactory.openSession();
@@ -52,6 +56,7 @@ public class OrderServiceImpl implements OrderService {
         for(String id:ids){
             Order order=session.find(Order.class,id);
             Good good=session.find(Good.class,order.getGood_id());
+            pathService.deletePaths(id);
             session.delete(good);
             session.delete(order);
         }
@@ -161,5 +166,26 @@ public class OrderServiceImpl implements OrderService {
             orderFindByIdVo.setOrderId(order.getId());
             orderFindByIdVo.setCreate_time(order.getCreate_time());
         return orderFindByIdVo;
+    }
+
+    @Override
+    @Transactional
+    public List<OrderListIdVo> listId() {
+        Session session=sessionFactory.openSession();
+        String hql="select distinct o from lut.lijihu.airtransport.order.domin.Order o ,OrderPath op where o.id=op.orderId";
+        Query query=session.createQuery(hql);
+        List<Order> orders1=query.list();
+        hql="from lut.lijihu.airtransport.order.domin.Order";
+        query=session.createQuery(hql);
+        List<Order> orders=query.list();
+        orders.removeAll(orders1);
+        session.close();
+        List<OrderListIdVo> orderListIdVos=new ArrayList<OrderListIdVo>();
+        for(int i=0;i<orders.size();i++){
+            OrderListIdVo orderListIdVo=new OrderListIdVo();
+            orderListIdVo.setId(orders.get(i).getId());
+            orderListIdVos.add(orderListIdVo);
+        }
+        return orderListIdVos;
     }
 }

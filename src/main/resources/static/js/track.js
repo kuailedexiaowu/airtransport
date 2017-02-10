@@ -229,6 +229,47 @@ function deletein() {
         })
     }
 }
+function addin() {
+    $("#add").attr("data-target","#addModel").attr("data-toggle","modal");
+    $.post({
+        url:"/airtransport/order/listid",
+        async:true,
+        dataType:'json',
+        success:function (data) {
+            $("#orderid").children().remove();
+            for(var i=0;i<data.length;i++){
+                $("#orderid").append("<option>"+data[i].id+"</option>");
+            }
+        },
+        error:function () {
+                alert("fail")
+        }
+    });
+    $("#add").attr("data-target","#addModel").attr("data-toggle","modal");
+}
+
+function addsub() {
+    if($("select").val()==null) {
+        alert("您还未选择");
+        return null;
+    }
+    else{
+        $.post({
+            url:"/airtransport/path/addpaths",
+            async:true,
+            dataType:'json',
+            data:{id:$("#orderid").val()},
+            success:function (data) {
+                for(var i=0;i<data.length;i++){
+                    $("#orderid").append("<option>"+data[i].id+"</option>");
+                }
+            },
+            error:function () {
+                alert("fail")
+            }
+        });
+    }
+}
 
 function format(timestamp)
 {

@@ -2,6 +2,7 @@ package lut.lijihu.airtransport.cabin.service.impl;
 
 import lut.lijihu.airtransport.cabin.domin.Cabin;
 import lut.lijihu.airtransport.cabin.invo.CabinServiceSelectAllIn;
+import lut.lijihu.airtransport.cabin.revo.CabinListIdVo;
 import lut.lijihu.airtransport.cabin.service.CabinService;
 import lut.lijihu.airtransport.core.Message;
 import lut.lijihu.airtransport.core.PageInfo;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -76,5 +78,21 @@ public class CabinServiceImpl implements CabinService {
         pageInfo.setCurrentPage(cabinServiceSelectAllIn.getPageNo());
         pageInfo.setSize(cabins1.size());
         return pageInfo;
+    }
+
+    @Override
+    @Transactional
+    public List<CabinListIdVo> listId() {
+        Session session=sessionFactory.openSession();
+        String hql="from Cabin c where c.status='可用'";
+        Query query=session.createQuery(hql);
+        List<Cabin> cabins=query.list();
+        List<CabinListIdVo> cabinListIdVos=new ArrayList<CabinListIdVo>();
+        for(int i=0;i<cabins.size();i++){
+            CabinListIdVo cabinListIdVo=new CabinListIdVo();
+            cabinListIdVo.setId(cabins.get(i).getId());
+            cabinListIdVos.add(cabinListIdVo);
+        }
+        return cabinListIdVos;
     }
 }

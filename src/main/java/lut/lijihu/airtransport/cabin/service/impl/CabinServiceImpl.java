@@ -93,6 +93,7 @@ public class CabinServiceImpl implements CabinService {
             cabinListIdVo.setId(cabins.get(i).getId());
             cabinListIdVos.add(cabinListIdVo);
         }
+        session.close();
         return cabinListIdVos;
     }
 }

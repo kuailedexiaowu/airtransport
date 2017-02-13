@@ -45,7 +45,6 @@ public class ClientServiceImpl implements ClientService{
         Session session=sessionFactory.openSession();
         Transaction transaction=session.beginTransaction();
         session.update(client);
-        session.flush();
         transaction.commit();
         session.close();
         return new Message("更新成功");

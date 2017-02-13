@@ -23,7 +23,7 @@
     </style>
     <script>
         $(function () {
-            cabin(1,2);
+            cabin(1,5);
         });
     </script>
 </head>
@@ -121,7 +121,12 @@
                             状态
                         </label>
                         <div class="col-sm-4">
-                            <input class="form-control" id="status" type="text"/>
+                            <!--<input class="form-control" id="status" type="text"/>-->
+                            <select id="status" class="form-control dropdown">
+                                <option>可用</option>
+                                <option>运输中</option>
+                                <option>已满</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">

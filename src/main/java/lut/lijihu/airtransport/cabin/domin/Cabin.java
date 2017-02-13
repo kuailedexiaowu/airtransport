@@ -22,5 +22,5 @@ public class Cabin {
     @Column(name = "end")
     private String end;
     @Column(name = "status")
-    private String status="空闲";
+    private String status="可用";
 }

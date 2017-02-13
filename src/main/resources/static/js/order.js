@@ -153,6 +153,20 @@ function update() {
         var trnum=$(":input:checkbox:checked").parent().parent().index();
         var trele=$("#table").find('tr').eq(trnum+1).find("td").eq(1).text();
         $.post({
+            url:"/airtransport/cabin/listid",
+            async:true,
+            dataType:'json',
+            success:function (data) {
+                $("#cabin_id").children().remove();
+                for(var i=0;i<data.length;i++){
+                    $("#cabin_id").append("<option>"+data[i].id+"</option>");
+                }
+            },
+            error:function () {
+                alert("fail")
+            }
+        });
+        $.post({
             url:"/airtransport/order/findbyid",
             async:true,
             dataType:'json',
@@ -223,7 +237,7 @@ function addin() {
         async:true,
         dataType:'json',
         success:function (data) {
-            $("#cabin_id").children().remove();
+            $("#cabin_id2").children().remove();
             for(var i=0;i<data.length;i++){
                 $("#cabin_id2").append("<option>"+data[i].id+"</option>");
             }

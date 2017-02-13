@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="Generator" content="EditPlus®">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
     <title>index</title>
     <style type="text/css">
@@ -22,29 +22,26 @@
         <div class="col-md-2">
         </div>
         <div class="col-md-3">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal">
                 <div class="form-group">
-
-                    <label for="inputEmail3" class="col-sm-3 control-label">
+                    <label for="username" class="col-sm-3 control-label">
                         账号
                     </label>
                     <div class="col-sm-9">
-                        <input type="email" class="form-control " id="inputEmail3" />
+                        <input type="text" class="form-control " id="username" />
                     </div>
                 </div>
                 <div class="form-group">
-
-                    <label for="inputPassword3" class="col-sm-3 control-label">
+                    <label for="password" class="col-sm-3 control-label">
                         密码
                     </label>
                     <div class="col-sm-9">
-                        <input type="password" class="form-control" id="inputPassword3" />
+                        <input type="password" class="form-control" id="password" />
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-9">
-
-                        <button type="submit" class="btn btn-success">
+                        <button class="btn btn-success" onclick="login()">
                             登录
                         </button>
                     </div>

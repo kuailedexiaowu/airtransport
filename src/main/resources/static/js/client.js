@@ -100,7 +100,7 @@ function client(no,size) {
 function client2(no,size) {
     $.post({
         url:"/airtransport/client/selectall",
-        async:true,
+        async:false,
         dataType:'json',
         data:{pageNo:no,pageSize:size},
         success:function (data) {

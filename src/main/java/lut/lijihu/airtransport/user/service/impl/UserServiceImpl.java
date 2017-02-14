@@ -8,6 +8,8 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.security.MessageDigest;
 
 
@@ -18,6 +20,8 @@ import java.security.MessageDigest;
 public class UserServiceImpl implements UserService {
     @Autowired
     SessionFactory sessionFactory;
+    @Autowired
+    HttpServletRequest httpServletRequest;
 
     @Override
     public String getUser(String username,String password) {
@@ -36,7 +40,10 @@ public class UserServiceImpl implements UserService {
            e.printStackTrace();
         }
         if(user.getPassword().equals(p))
-            return "success";
+        {
+            HttpSession httpSession=httpServletRequest.getSession();
+            httpSession.setAttribute("username",user.getUsername());
+            return "success";}
         else
             return "fail";
 

@@ -89,7 +89,10 @@ function cabin(no,size) {
 
         },
         error:function (data) {
-            alert(data.pageSize+"错误");
+            var response=data.responseText;
+            if("indexPage".indexOf(response)){
+                window.location.href="airtransport/index.html"
+            }
         }
     });
 }
@@ -116,7 +119,10 @@ function cabin2(no,size) {
 
         },
         error:function (data) {
-            alert(data.pageSize+"错误");
+            var response=data.responseText;
+            if("indexPage".indexOf(response)){
+                window.location.href="airtransport/index.html"
+            }
         }
     });
 }

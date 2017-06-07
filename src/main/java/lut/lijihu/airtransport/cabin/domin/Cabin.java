@@ -16,7 +16,7 @@ public class Cabin {
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "assigned")
     @Column(name="id")
-    private String id= UUID.randomUUID().toString();
+    private String id= System.currentTimeMillis()+"";
     @Column(name = "start")
     private String start;
     @Column(name = "end")

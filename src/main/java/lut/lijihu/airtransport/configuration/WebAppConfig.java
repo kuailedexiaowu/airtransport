@@ -20,6 +20,8 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
         registry.addInterceptor(loginInterceptor())
                 .addPathPatterns("/**")
                 .excludePathPatterns("/index.html")
+                .excludePathPatterns("/order/findbyid")
+                .excludePathPatterns("/path/getpaths")
                 .excludePathPatterns("/user/login");
 
     }

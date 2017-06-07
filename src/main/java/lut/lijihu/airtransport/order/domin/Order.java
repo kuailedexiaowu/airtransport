@@ -18,7 +18,7 @@ public class Order {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "assigned")
     @Column(name = "id")
-    private String id= UUID.randomUUID().toString();
+    private String id= System.currentTimeMillis()+"";
     @Column(name = "send_id")
     private String send_id;
     @Column(name = "receiver_id")

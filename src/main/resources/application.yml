@@ -9,7 +9,7 @@ spring:
 
 druid:
   datasource:
-    url: jdbc:mysql://localhost:3306/airtransport?characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/cookbook?characterEncoding=utf8
     username: cbuser
     password: cbpass
     maxActive: 20

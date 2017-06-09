@@ -85,7 +85,7 @@ function client(no,size) {
                 bootstrapMajorVersion:3,
                 onPageClicked:function (event, originalEvent, type, page) {
                     $("tbody").children().remove();
-                    client2(page,2)
+                    client2(page,8)
                 }
             }
             $('#paginator').bootstrapPaginator(op);
@@ -115,7 +115,7 @@ function client2(no,size) {
                 bootstrapMajorVersion:3,
                 onPageClicked:function (event, originalEvent, type, page) {
                     $("tbody").children().remove();
-                    client2(page,2)
+                    client2(page,8)
                 }
             }
             $('#paginator').bootstrapPaginator(op);
@@ -169,7 +169,9 @@ function update() {
 }
 
 function updatesub() {
-    var clientUpdateIn={id:$("#id").val(),name:$("#name").val().trim(),tel:$("#tel").val().trim(),code:$("#code").val(),address:$("#address").val()};
+    var trnum=$(":input:checkbox:checked").parent().parent().index();
+    var trele=$("#table").find('tr').eq(trnum+1).find("td").eq(1).text();
+    var clientUpdateIn={id:trele,name:$("#name").val().trim(),tel:$("#tel").val().trim(),code:$("#code").val(),address:$("#address").val()};
     $.post({
         url:"/airtransport/client/updateclient",
         async:true,
@@ -177,7 +179,8 @@ function updatesub() {
         data:JSON.stringify(clientUpdateIn),
         contentType:"application/json",
         success:function (data) {
-            alert(data.message)
+//            alert(data.message)
+location.reload();
         },
         error:function () {
             alert("fail")
@@ -204,7 +207,8 @@ function addsub() {
         data: JSON.stringify(clientAddIn),
         contentType: "application/json",
         success: function (data) {
-            alert(data.message)
+//            alert(data.message)
+location.reload();
         },
         error: function () {
             alert("fail")
@@ -241,7 +245,8 @@ function deletein(){
         data:JSON.stringify(ids),
         contentType:"application/json",
         success: function (data) {
-                alert(data.message)
+//                alert(data.message)
+location.reload();
             },
         error: function () {
                 alert("fail")

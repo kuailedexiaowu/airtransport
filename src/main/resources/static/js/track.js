@@ -76,7 +76,7 @@ function track(no,size) {
                 bootstrapMajorVersion:3,
                 onPageClicked:function (event, originalEvent, type, page) {
                     $("tbody").children().remove();
-                    track2(page,2)
+                    track2(page,8)
                 }
             }
             $('#paginator').bootstrapPaginator(op);
@@ -105,7 +105,7 @@ function track2(no,size) {
                 bootstrapMajorVersion:3,
                 onPageClicked:function (event, originalEvent, type, page) {
                     $("tbody").children().remove();
-                    track2(page,2)
+                    track2(page,8)
                 }
             }
             $('#paginator').bootstrapPaginator(op);
@@ -163,7 +163,8 @@ function updatesub() {
         data:JSON.stringify(pathAddIn),
         contentType:"application/json",
         success:function (data) {
-            alert(data.message)
+//            alert(data.message)
+location.reload();
         },
         error:function () {
             alert("fail")
@@ -227,7 +228,8 @@ function deletein() {
             dataType:'json',
             data:{id:trele},
             success:function (data) {
-                alert(data.message);
+//                alert(data.message);
+location.reload();
             },
             error:function () {
                 alert("fail")
@@ -269,6 +271,7 @@ function addsub() {
                 for(var i=0;i<data.length;i++){
                     $("#orderid").append("<option>"+data[i].id+"</option>");
                 }
+                location.reload();
             },
             error:function () {
                 alert("fail")

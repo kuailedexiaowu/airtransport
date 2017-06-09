@@ -82,7 +82,7 @@ function cabin(no,size) {
                 bootstrapMajorVersion:3,
                 onPageClicked:function (event, originalEvent, type, page) {
                     $("tbody").children().remove();
-                    cabin2(page,2)
+                    cabin2(page,8)
                 }
             }
             $('#paginator').bootstrapPaginator(op);
@@ -112,7 +112,7 @@ function cabin2(no,size) {
                 bootstrapMajorVersion:3,
                 onPageClicked:function (event, originalEvent, type, page) {
                     $("tbody").children().remove();
-                    cabin2(page,2)
+                    cabin2(page,8)
                 }
             }
             $('#paginator').bootstrapPaginator(op);
@@ -173,7 +173,8 @@ function updatesub() {
         data: JSON.stringify(cabinUpdateIn),
         contentType: "application/json",
         success: function (data) {
-            alert(data.message)
+//            alert(data.message)
+location.reload();
         },
         error: function () {
             alert("fail")
@@ -197,7 +198,8 @@ function addsub() {
         data: JSON.stringify(cabinAddIn),
         contentType: "application/json",
         success: function (data) {
-            alert(data.message)
+//            alert(data.message)
+location.reload();
         },
         error: function () {
             alert("fail")
@@ -234,7 +236,8 @@ function deletein(){
         data:JSON.stringify(ids),
         contentType:"application/json",
         success: function (data) {
-            alert(data.message)
+//            alert(data.message)
+location.reload();
         },
         error: function () {
             alert("fail")

@@ -87,7 +87,7 @@ function order(no,size) {
                 bootstrapMajorVersion:3,
                 onPageClicked:function (event, originalEvent, type, page) {
                     $("tbody").children().remove();
-                    order2(page,2)
+                    order2(page,8)
                 }
             }
             $('#paginator').bootstrapPaginator(op);
@@ -117,7 +117,7 @@ function order2(no,size) {
                 bootstrapMajorVersion:3,
                 onPageClicked:function (event, originalEvent, type, page) {
                     $("tbody").children().remove();
-                    order2(page,2)
+                    order2(page,8)
                 }
             }
             $('#paginator').bootstrapPaginator(op);
@@ -229,7 +229,8 @@ function updatesub() {
         data:JSON.stringify(orderUpdateIn),
         contentType:"application/json",
         success:function (data) {
-            alert(data.message)
+//            alert(data.message)
+location.reload();
         },
         error:function () {
             alert("fail")
@@ -282,7 +283,8 @@ function addsub() {
         data: JSON.stringify(orderAddIn),
         contentType: "application/json",
         success: function (data) {
-            alert(data.message)
+//            alert(data.message)
+location.reload();
         },
         error: function () {
             alert("fail")
@@ -311,7 +313,10 @@ function deletein(){
         var id=$("#table").find('tr').eq(trnum).find("td").eq(1).text();
         ids.push(id);
     };
-
+    function top4() {
+        $("#main").attr("src","ordermanager.html");
+        sessionStorage.setItem("src","ordermanager.html")
+    }
     $.post({
         url: "/airtransport/order/deleteorder",
         async: true,
@@ -319,7 +324,8 @@ function deletein(){
         data:JSON.stringify(ids),
         contentType:"application/json",
         success: function (data) {
-            alert(data.message)
+//            alert(data.message)
+            location.reload();
         },
         error: function () {
             alert("fail")
